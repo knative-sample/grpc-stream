@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto;
+
+service StreamService {
+    rpc StreamList(StreamRequest) returns (stream StreamResponse) {};
+}
+
+
+message StreamMessage {
+  string key = 1;
+  int32 value = 2;
+}
+
+message StreamRequest {
+  StreamMessage msg = 1;
+}
+
+message StreamResponse {
+  StreamMessage msg = 1;
+}
